@@ -12,6 +12,7 @@ def client(host = 'localhost', port=8082):
         print ("Enviando %s" % message)
         sock.sendall(message.encode('utf-8'))
         data = sock.recv(2048)
+        
     except socket.error as e:
         print ("Socket error: %s" %str(e))
     except Exception as e:
@@ -19,5 +20,6 @@ def client(host = 'localhost', port=8082):
     finally:
         print ("Closing connection to the server")
         sock.close()
+
 
 client()
