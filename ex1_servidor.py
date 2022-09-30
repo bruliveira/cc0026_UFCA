@@ -16,12 +16,15 @@ def server(host = 'localhost', port=8082):
     while True:
         print ("Esperando mensagem do cliente")
         client, address = sock.accept()
+        print ('conectado' )
+        print ("aguardando mensagem")
         data = client.recv(data_payload)
         '''
         o que fazer com a mensagem recebida ?
         '''
         if data:
             print ("Dados: %s" %data.decode())
+           
             client.send(data)
             client.close()
 server()
